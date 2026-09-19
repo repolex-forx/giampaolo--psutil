@@ -1,0 +1,7 @@
+[2026-09-19T17:31:52Z] === AST ITERATION 1 START | repo=giampaolo/psutil sha=0d4900b0 ===
+[2026-09-19T17:31:52Z] [iter=1] PHASE START: ast repo=giampaolo/psutil sha=0d4900b0
+[2026-09-19T17:31:52Z] [iter=1] Building AST aggregate chunks
+[2026-09-19T17:34:05Z] [iter=1] AST chunks built count=1 triples=1597897
+[2026-09-19T17:34:05Z] [iter=1] AST .complete marker written path=/home/runner/work/forx/forx/storage/aggregate/ast/0d4900b073f8697ab21c47d823621bea61f39a3b/.complete
+[2026-09-19T17:34:05Z] [iter=1] PHASE END: ast elapsed_s=133 elapsed_min=2.2
+[2026-09-19T17:34:05Z] [iter=1] Wrote .next-action.json next_action=enrich path=/home/runner/work/forx/forx/storage/aggregate/.next-action.json
