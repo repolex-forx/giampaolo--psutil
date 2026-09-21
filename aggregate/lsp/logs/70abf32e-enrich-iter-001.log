@@ -1,0 +1,49 @@
+[2026-09-21T03:15:32Z] === ENRICH ITERATION 1 START | repo=giampaolo/psutil sha=70abf32e ===
+[2026-09-21T03:15:32Z] [iter=1] PHASE START: enrich repo=giampaolo/psutil sha=70abf32e runlog=/home/runner/work/forx/forx/storage/aggregate/lsp/logs/70abf32e-enrich-iter-001.log output=/home/runner/work/forx/forx/storage/aggregate/lsp/70abf32eb3c803a0a527c3784c3baca3ae041bcb.nq.gz
+[2026-09-21T03:15:32Z] [iter=1] Step 1: Loading AST into disk-backed store mem_mb=78 MB
+[2026-09-21T03:16:01Z] [iter=1] AST store loaded triples=1463874 load_secs=29 mem_mb=878 MB
+[2026-09-21T03:16:01Z] [iter=1] Step 2: Finding LSP targets mem_mb=878 MB
+[2026-09-21T03:16:04Z] [iter=1] LSP targets found call_sites=12991 imports=0 extends=0 implements=0 secs=3
+[2026-09-21T03:16:06Z] [iter=1] Step 2.7: Building position index (one-shot, shared across resolvers) mem_mb=878 MB
+[2026-09-21T03:16:12Z] [iter=1] Position index built positions=103709 nodes_with_types=130275 secs=7 mem_mb=878 MB
+[2026-09-21T03:16:12Z] [iter=1] Step 3: Starting LSP resolution mem_mb=878 MB already_completed_types=[] already_completed_files=0
+[2026-09-21T03:16:12Z] [iter=1] Resolving target type target_type=call_site count=12991
+[2026-09-21T03:16:15Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=0.7 files_done=0 resolved=0 errors=0 current=psutil/arch/netbsd/specific.c
+[2026-09-21T03:17:08Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=1.6 files_done=2 resolved=51 errors=109 current=psutil/_psutil_windows.c
+[2026-09-21T03:18:29Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=3.0 files_done=3 resolved=55 errors=275 current=psutil/_psutil_linux.c
+[2026-09-21T03:19:21Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=3.8 files_done=5 resolved=88 errors=383 current=psutil/arch/freebsd/specific.c
+[2026-09-21T03:20:05Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=4.6 files_done=6 resolved=124 errors=474 current=psutil/arch/windows/process_handles.c
+[2026-09-21T03:20:42Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=5.2 files_done=8 resolved=163 errors=550 current=psutil/arch/windows/services.c
+[2026-09-21T03:21:20Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=5.8 files_done=11 resolved=220 errors=628 current=psutil/_psutil_aix.c
+[2026-09-21T03:22:18Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=6.8 files_done=13 resolved=256 errors=748 current=psutil/arch/netbsd/socks.c
+[2026-09-21T03:22:57Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=7.4 files_done=15 resolved=289 errors=828 current=psutil/arch/freebsd/sys_socks.c
+[2026-09-21T03:23:35Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=8.1 files_done=18 resolved=318 errors=908 current=psutil/arch/windows/global.c
+[2026-09-21T03:24:06Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=8.6 files_done=24 resolved=373 errors=970 current=psutil/arch/aix/common.c
+[2026-09-21T03:24:54Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=9.4 files_done=28 resolved=446 errors=1061 current=psutil/tests/test_process.py
+[2026-09-21T03:29:04Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=13.5 files_done=29 resolved=980 errors=1539 current=psutil/tests/test_linux.py
+[2026-09-21T03:31:59Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=16.5 files_done=30 resolved=1668 errors=1868 current=psutil/_pslinux.py
+[2026-09-21T03:33:45Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=18.2 files_done=31 resolved=2067 errors=2057 current=psutil/tests/test_posix.py
+[2026-09-21T03:34:26Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=18.9 files_done=32 resolved=2171 errors=2135 current=scripts/internal/bench_oneshot.py
+[2026-09-21T03:35:14Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=19.7 files_done=34 resolved=2445 errors=2226 current=scripts/cpu_distribution.py
+[2026-09-21T03:38:04Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=22.5 files_done=37 resolved=2878 errors=2563 current=psutil/tests/runner.py
+[2026-09-21T03:39:28Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=23.9 files_done=39 resolved=3001 errors=2731 current=psutil/_pssunos.py
+[2026-09-21T03:40:02Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=24.5 files_done=40 resolved=3070 errors=2797 current=psutil/_common.py
+[2026-09-21T03:41:24Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=25.9 files_done=42 resolved=3313 errors=2953 current=psutil/_pswindows.py
+[2026-09-21T03:42:21Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=26.8 files_done=43 resolved=3405 errors=3068 current=psutil/tests/test_connections.py
+[2026-09-21T03:43:19Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=27.8 files_done=44 resolved=3571 errors=3179 current=psutil/_psposix.py
+[2026-09-21T03:44:36Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=29.1 files_done=46 resolved=3920 errors=3328 current=scripts/internal/winmake.py
+[2026-09-21T03:45:26Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=29.9 files_done=47 resolved=4005 errors=3427 current=scripts/internal/check_broken_links.py
+[2026-09-21T03:46:22Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=30.8 files_done=53 resolved=4211 errors=3529 current=psutil/tests/test_unicode.py
+[2026-09-21T03:46:54Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=31.4 files_done=54 resolved=4260 errors=3592 current=scripts/disk_usage.py
+[2026-09-21T03:48:20Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=32.8 files_done=56 resolved=4505 errors=3761 current=psutil/__init__.py
+[2026-09-21T03:50:28Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=34.9 files_done=57 resolved=4709 errors=3955 current=scripts/internal/print_api_speed.py
+[2026-09-21T03:51:06Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=35.6 files_done=61 resolved=4853 errors=4020 current=psutil/tests/test_aix.py
+[2026-09-21T03:51:39Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=36.1 files_done=63 resolved=4962 errors=4084 current=psutil/tests/test_contracts.py
+[2026-09-21T03:52:18Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=36.8 files_done=64 resolved=5216 errors=4156 current=scripts/top.py
+[2026-09-21T03:53:11Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=37.7 files_done=67 resolved=5308 errors=4257 current=scripts/procsmem.py
+[2026-09-21T03:53:45Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=38.2 files_done=76 resolved=5455 errors=4322 current=scripts/sensors.py
+[2026-09-21T03:54:16Z] [iter=1] HEARTBEAT target_type=call_site elapsed_min=38.7 files_done=90 resolved=5587 errors=4379 current=scripts/internal/print_access_denied.py
+[2026-09-21T03:54:58Z] [iter=1] Target type resolved target_type=call_site resolved=5596 errors=4456 secs=2326 mem_mb=878 MB
+[2026-09-21T03:55:06Z] [iter=1] Step 5: Writing final enrichment file triples=92207
+[2026-09-21T03:55:09Z] [iter=1] Enrichment file written path=/home/runner/work/forx/forx/storage/aggregate/lsp/70abf32eb3c803a0a527c3784c3baca3ae041bcb.nq.gz size_kb=1804
+[2026-09-21T03:55:09Z] [iter=1] PHASE END: enrich elapsed_s=2377 elapsed_min=39.6 total_triples=92207
