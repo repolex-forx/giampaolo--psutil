@@ -6,29 +6,27 @@ RDF knowledge graph data for [giampaolo/psutil](https://github.com/giampaolo/psu
 
 ## How to use this data
 
-The easiest way to get started is to install the [lexq](https://github.com/repolex-ai/lexq) query tool using [uv](https://docs.astral.sh/uv/getting-started/installation/).
-
-If you have uv installed, just copy/paste this into your terminal:
+The easiest way to get started is to install the [rlex](https://github.com/repolex-ai/rlex) query tool:
 
 ```bash
-uv tool install git+https://github.com/repolex-ai/lexq
+cargo install --git https://github.com/repolex-ai/rlex
 ```
 
-This installs lexq onto your system, in your user context. Verify the install:
+Verify the install:
 
 ```bash
-lexq --help
+rlex --help
 ```
 
-**lexq is designed to be used primarily by LLMs in a terminal.** Start up your favorite LLM and ask it to use the lexq tool. It's that easy!
+**rlex is designed to be used primarily by LLMs in a terminal.** Start up your favorite AI assistant and ask it to use rlex. It handles the SPARQL — you just ask questions in plain English.
 
 To load this repo's data:
 
 ```bash
-lexq download giampaolo/psutil
+rlex download giampaolo/psutil
 ```
 
-This will automatically download essential data files from the last parsed commit. Consult `lexq --moreinfo` for other options, including downloading multiple commits, blobs, etc.
+Consult `rlex --help` for other options, including SPARQL queries, HTTP server, and interactive visualization.
 
 ## Data structure
 
@@ -86,6 +84,8 @@ All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) 
 │   │   │   └── chunk-001.nq.gz
 │   │   ├── c948ef07e46b114a61492c9d207c741339fceeb2
 │   │   │   └── chunk-001.nq.gz
+│   │   ├── e74f59b86bd3d98be915e42c8f470a52667280cc
+│   │   │   └── chunk-001.nq.gz
 │   │   ├── ea5b55605f857affa4e65fa27eb80f4f2bfebd63
 │   │   │   └── chunk-001.nq.gz
 │   │   ├── f1a54ad88527e0706fb8a88ad7daae80686acc62
@@ -119,6 +119,7 @@ All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) 
 │   │   ├── b760f4848db4db49de57918660f6a5059666b720.nq.gz
 │   │   ├── c6cd256da95ffe9599792759b1c2586ba24fa047.nq.gz
 │   │   ├── c948ef07e46b114a61492c9d207c741339fceeb2.nq.gz
+│   │   ├── e74f59b86bd3d98be915e42c8f470a52667280cc.nq.gz
 │   │   ├── ea5b55605f857affa4e65fa27eb80f4f2bfebd63.nq.gz
 │   │   ├── f1a54ad88527e0706fb8a88ad7daae80686acc62.nq.gz
 │   │   ├── f50df9657591c52a0a46c5af3d14998c6471065f.nq.gz
@@ -171,6 +172,8 @@ All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) 
 │       ├── c6cd256da95ffe9599792759b1c2586ba24fa047
 │       │   └── chunk-001.nq.gz
 │       ├── c948ef07e46b114a61492c9d207c741339fceeb2
+│       │   └── chunk-001.nq.gz
+│       ├── e74f59b86bd3d98be915e42c8f470a52667280cc
 │       │   └── chunk-001.nq.gz
 │       ├── ea5b55605f857affa4e65fa27eb80f4f2bfebd63
 │       │   └── chunk-001.nq.gz
@@ -253,6 +256,7 @@ All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) 
     ├── 096e2f373f430c3fbda24e71fe589d571dd69954.nq.gz
     ├── 097bff10842f72e726c6b216da3880828f02f035.nq.gz
     ├── 09bee6820b3bf72599b7fcdd7b79d33beb37a276.nq.gz
+    ├── 09d4c3ed2578dd24f59ed6e0f10111dcbbf15980.nq.gz
     ├── 09f3055eda3b3d3f2d0efb85233d577cf3032c34.nq.gz
     ├── 09fa267a983800a7505043dc1ce06ef8d8567f6a.nq.gz
     ├── 09fed4e46d00f9975104611fad4f63368c77be29.nq.gz
@@ -292,13 +296,9 @@ All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) 
     ├── 0ea7355eb3ccc848629b46cb76775387ba6de899.nq.gz
     ├── 0ec2ead8e299368d94273c42752bbd85ee386cb4.nq.gz
     ├── 0ecae2f3b7350d3e7276e3a901151e66c1eab522.nq.gz
-    ├── 0f6716b3b50917a8d6948526aa21e39baba51c28.nq.gz
-    ├── 0f899ef51b8cd847981eaa41021e4b9d33073df4.nq.gz
-    ├── 0f8bd08d48ac521efa19e5fdb0e98aa3f84922ef.nq.gz
-    ├── 10157cc9c1f0f4db7de1fd4a3c814359e1052b8a.nq.gz
-    └── 101a64ef71a99775b148e6c305968e43164b8760.nq.gz
+    └── 0f6716b3b50917a8d6948526aa21e39baba51c28.nq.gz
 
-62 directories, 200 files
+64 directories, 200 files
 ```
 
 | Directory | What it contains |
@@ -312,10 +312,11 @@ All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) 
 | `branch/` | Branch metadata. |
 | `tag/` | Tag metadata. |
 | `filetree/` | File tree snapshots per commit (which files existed and their blob SHAs). |
+| `audit/` | Code architecture and graph audit reports per commit. |
 
 ## Source repository
 
 [giampaolo/psutil](https://github.com/giampaolo/psutil)
 
 ---
-*Parsed on 2026-09-24 by [repolex](https://repolex.ai)*
+*Parsed on 2026-09-26 by [repolex](https://repolex.ai)*
